@@ -1,0 +1,57 @@
+#!/bin/bash
+
+#remove global accounts of git username and email
+
+function unset_git {
+    git config --global --unset user.name
+    git config --global --unset user.email
+    echo "username and email have been unset"
+}
+
+function git_credentials {
+
+echo "----------"
+echo Git global username is:
+git config --global user.name
+echo Git glboal email is:
+git config --global user.email
+
+echo "----------"
+
+echo Git local username is:
+git config user.name
+echo Git local email is:
+git config user.email
+echo "----------"
+
+}
+
+function question_time {
+
+while true; do
+
+    echo "You sure you want to unset global git credentials?"
+    read question
+    question=${question:-no}
+    echo ""
+
+    if [[ $question == "yes" ]]; then
+        unset_git
+        git_credentials
+        break
+    elif [[ $question == "no" ]]; then
+        echo "Credentials have not been reset"
+        break
+    else
+        echo "unsure of answer, try yes or no"
+    fi
+
+done
+
+}
+
+
+
+question_time
+
+

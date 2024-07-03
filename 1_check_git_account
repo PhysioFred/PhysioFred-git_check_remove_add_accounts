@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#check global and local git username and email
+#check git branches
+#check remote pathway
+#add this to one of your enviromental pathway to call script globally e.g. /usr/local/bin folder 
+#use $PATH to find your environments
+
+function git_credentials {
+
+echo "----------GLOBAL----------"
+
+echo Git global username is:
+git config --global user.name
+echo Git glboal email is:
+git config --global user.email
+
+echo "----------LOCAL----------"
+
+echo Git local username is:
+git config user.name
+echo Git local email is:
+git config user.email
+
+echo "----------BRANCH----------"
+
+echo Display Git Branch:
+git branch
+
+echo "----------PATHWAY----------"
+
+echo Current Git Remote Pathway
+git remote -v
+
+echo "----------DONE----------"
+
+}
+
+git_credentials

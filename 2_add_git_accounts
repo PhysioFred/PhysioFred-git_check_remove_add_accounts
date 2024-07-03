@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#ask and add git credentials globally
+function add_git_creds {
+
+echo "Git Account login"
+echo "what is your username?"
+read user
+echo "what is your email?"
+read email
+git config --global user.name $user
+git config --global user.email $email
+echo "your username and email is now set up as:"
+git config --global user.name
+git config --global user.email
+
+}
+
+add_git_creds
